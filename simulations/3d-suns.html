@@ -7,14 +7,22 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
   <div id="path"></div>
 
   <script>
-    var now = Date.now()/1000;
-    var start = Date.UTC(2017, 07, 21, 16, 25, 40)/1000;
+    var now = Date.now() / 1000;
+    var start = Date.UTC(2017, 07, 21, 16, 25, 40) / 1000;
     var diff = now - start;
 
     var videoDivID = 'path';

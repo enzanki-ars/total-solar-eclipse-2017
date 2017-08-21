@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Total Solar Eclipse 2017 Live - Simulation Path</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div id="path"></div>
+
+  <script>
+    var now = Date.now()/1000;
+    var start = Date.UTC(2017, 07, 21, 17, 12, 01)/1000;
+    var diff = now - start;
+
+    var videoDivID = 'path';
+
+    if (diff > 0) {
+
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+
+      function onYouTubePlayerAPIReady(playerID, videoID) {
+        player = new YT.Player(videoDivID, {
+          height: '100%',
+          width: '100%',
+          videoId: 'hcfPWUS3JIE',
+          playerVars: {
+            autoplay: 1,
+            start: Math.round(diff)
+          },
+        });
+      }
+    } else {
+      var videoPlayer = document.getElementById(videoDivID);
+      videoPlayer.textContent = 'Visulization has not started. Will start in: ' + Math.round(diff) * -1 + ' seconds';
+    }
+  </script>
+</body>
+
+</html>
